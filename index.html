@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minha gatinha</title>
+
+    <style>
+        body {
+            background-image: url(cat3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: local;
+            background-position: left;
+        }
+
+        .painel {
+            margin: auto;
+            background-color: rgba(102, 44, 44, 0.753);
+            width: 500px;
+            height: 500px;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #sim {
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -50px;
+        }
+
+        #nao {
+            position: absolute;
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+        }
+
+        h1 {
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="painel">
+        <h1 id="titulo">Aceita namorar comigo?</h1>
+
+        <img id="imagem-central" src="44efad2a43bc0cf0a7797de131551d15.jpg" width="250px" alt="">
+
+        <h2></h2>
+        
+        <button id="sim">Sim!</button>
+        <button onmouseover="fuja()" id="nao">Não!</button>
+        
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao");
+
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+
+        document.getElementById("sim").addEventListener("click", function() {
+            document.getElementById("imagem-central").src = "cat-kitten.gif"; // Substitua "nova-imagem.jpg" pelo caminho da nova imagem
+            document.getElementById("titulo").textContent = "Agora somos namorados!"; // Nova frase para o h1
+            document.getElementById("sim").style.display = "none";
+            document.getElementById("nao").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
